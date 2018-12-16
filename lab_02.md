@@ -2,43 +2,23 @@
 
 ### Exercise 1: Signing in to the Azure Portal
 
-The lab platform will give you a username and password that you can use to sign-in to the Azure Portal. Please use this username and password for the labs instead of your own company-supplied username and password.
+1. Log into the **Azure Portal**.
 
-### Exercise 2: Create Resource Groups
+    >Note: The lab platform will give you a username and password that you can use to sign-in to the Azure Portal. Please use this username and password for the labs instead of your own company-supplied username and password.
 
-#### Task 1: Create a Resource Group using the Portal
+1. In the top center of the **Home** view, select **Dashboard** as your default view and click **Save**.
 
-1.  On the left side of the portal, click the **Create a resource** link.
+1. In the navigation pane on the left side, click **Dashboard**.
 
-    > The **Create a resource** icon is a *plus-sign* character.
+### Exercise 2: View Resource Groups
 
-2.  At the top of the **New** blade, locate the **Search the Marketplace** field.
-
-3.  Enter the text **Resource Group** into the search field and press **Enter**.
-
-4.  In the **Everything** search results blade, select the **Resource group** result.
-
-5.  In the **Resource group** blade, click the **Create** button.
-
-6.  In the additional **Resource group** blade, perform the following actions:
-
-    a.  In the **Resource group name** field, enter the value **STORAGEGROUP**.
-
-    b.  Leave the **Subscription** field set to its default value.
-
-    c.  In the **Resource group location** field, select the **East US** location.
-
-    d.  Click the **Create** button.
-
-7.  Wait for the creation task to complete before moving on with this lab.
-
-#### Task 2: Create a Resource Group using the Cloud Shell and Azure CLI
+#### Task 2: View a Resource Group using the Cloud Shell and Azure CLI
 
 1.  At the top of the portal, click the **Cloud Shell** icon to open a new shell instance.
 
     > **Note**: The **Cloud Shell** icon is a symbol that is constructed of the combination of the *greater than* and *underscore* characters.
 
-2.  Because this is your first time opening the **Cloud Shell** using your *Azure Pass* subscription, you will see a wizard to configure **Cloud Shell** for first-time usage. Perform the following actions:
+1.  Because this is your first time opening the **Cloud Shell** using your *Azure Pass* subscription, you will see a wizard to configure **Cloud Shell** for first-time usage. Perform the following actions:
 
     a.  When offered a choice between **Bash** or **PowerShell**, select the **Bash** option.
 
@@ -48,77 +28,51 @@ The lab platform will give you a username and password that you can use to sign-
 
     > If you do not see the configuration options for **Cloud Shell**, this is most likely because you are using an existing subscription with this course's labs. The labs are written from the perspective that you are using a new Azure Pass subscription. You may see some small discrepancies in future lab instructions.
 
-3.  In the **Cloud Shell** command prompt at the bottom of the portal, type in the following command and press **Enter** to view a list of possible CLI commands:
+1.  In the **Cloud Shell** command prompt at the bottom of the portal, type in the following command and press **Enter** to view a list of possible CLI commands:
 
     ```azurecli-interactive
         az --help
     ```
 
-4.  Type in the following command and press **Enter** to view a list of possible CLI commands for *Resource Groups*:
+1.  Type in the following command and press **Enter** to view a list of possible CLI commands for *Resource Groups*:
 
     ```azurecli-interactive
         az group --help
     ```
 
-5.  Type in the following command and press **Enter** to view a list of possible CLI commands to *create a Resource Group*:
-
-    ```azurecli-interactive
-        az group create --help
-    ```
-
-6.  Type in the following command and press **Enter** to view a list of possible CLI commands to *list Resource Groups*:
+1.  Type in the following command and press **Enter** to view a list of possible CLI commands to *list Resource Groups*:
 
     ```azurecli-interactive
         az group list --help
     ```
 
-7.  Type in the following command and press **Enter** to list all resource groups in the subscription:
+1.  Type in the following command and press **Enter** to list all resource groups in the subscription:
 
     ```azurecli-interactive
         az group list
     ```
 
-8.  Type in the following command and press **Enter** to create a new resource group with the following details:
-
-    -   **Name**: APPSGROUP
-
-    -   **Location**: East US
-
-    <!-- -->
-
-    ```azurecli-interactive
-        az group create --name APPSGROUP --location eastus
-    ```
-
-9.  Type in the following command and press **Enter** to list all resource groups in the subscription:
-
-    ```azurecli-interactive
-        az group list
-    ```
-
-10. Close the **Cloud Shell** prompt at the bottom of the portal.
-
-> **Review**: In this exercise, you used the **Azure Portal** to create a resource group directly using the portal interface. You also used the **Cloud Shell** within the portal to create a resource group using the **Azure CLI** tool.
+1. Close the **Cloud Shell** prompt at the bottom of the portal.
 
 ### Exercise 3: Deploy a Minimal Template
 
 #### Task 1: Deploy Storage Account ARM Template
 
-1.  On the left side of the portal, click the **New** link.
+1.  On the left side of the portal, click the **Create a resource** link.
 
-2.  At the top of the **New** blade, locate the **Search the Marketplace** field.
+1.  At the top of the **New** blade, locate the **Search the Marketplace** field.
 
-3.  Enter the text **Template Deployment** into the search field and press **Enter**.
+1.  Enter the text **Template Deployment** into the search field and press **Enter**.
 
-4.  In the **Everything** search results blade, select the **Template deployment** result.
+1.  In the **Everything** search results blade, select the **Template deployment** result.
 
-5.  In the **Template deployment** blade, click the **Create** button.
+1.  In the **Template deployment** blade, click the **Create** button.
 
-6.  In the **Custom deployment** blade, click the *Build your own template in the editor* link.
+1.  In the **Custom deployment** blade, click the *Build your own template in the editor* link.
 
-7.  In the **Edit template** blade, locate the text editor and delete the existing template content.
+1.  In the **Edit template** blade, locate the text editor and delete the existing template content.
 
-8.  Copy and paste the following ARM template into the template editor:
+1.  Copy and paste the following ARM template into the template editor:
 
     ```json
         {
@@ -138,31 +92,31 @@ The lab platform will give you a username and password that you can use to sign-
         }
     ```
 
-9.  Click the **Save** button to persist the template.
+1.  Click the **Save** button to persist the template.
 
-10. Back in the **Custom deployment** blade, perform the following actions:
+1. Back in the **Custom deployment** blade, perform the following actions:
 
     a.  Leave the **Subscription** field set to its default value.
 
-    b.  In the **Resource group** section, locate the list and select the **STORAGEGROUP** option.
+    b.  In the **Resource group** section, locate the list and select the **Azurelod8028054** option.
 
     c.  In the **Terms and Conditions** section, select the *I agree to the terms and conditions stated above* checkbox.
 
     d.  Click the **Purchase** button.
 
-11. Wait for the creation task to complete before moving on with this lab.
+1. Wait for the creation task to complete before moving on with this lab.
 
 #### Task 2: View Deployment Metadata
 
 1.  On the left side of the portal, click the **Resource groups** link.
 
-2.  In the **Resource groups** blade, locate and select the **STORAGEGROUP** *Resource Group* link.
+1.  In the **Resource groups** blade, locate and select the **Azurelod8028054** *Resource Group* link.
 
-3.  In the **STORAGEGROUP** blade, locate the **Settings** section on the left side of the blade and click the **Deployments** link.
+1.  In the **Azurelod8028054** blade, locate the **Settings** section on the left side of the blade and click the **Deployments** link.
 
-4.  In the **Deployments** pane, select the latest deployment to view its metadata in a new blade.
+1.  In the **Deployments** pane, select the latest deployment to view its metadata in a new blade.
 
-5.  Within the deployment blade, observe the information displayed in the **Operation details** section.
+1.  Within the deployment blade, observe the information displayed in the **Operation details** section.
 
 > **Review**: In this exercise, you deployed a minimal ARM template that created a deployment using a simple ARM template that deployed a single resource without any input or output values.
 
@@ -170,17 +124,15 @@ The lab platform will give you a username and password that you can use to sign-
 
 #### Task 1: View ARM Template
 
-1.  On the Taskbar, click the **File Explorer** icon.
+1.  Right click the link [here](repo/files/master/deploy.json) and select **Save As** to download the needed **deploy.json** file.
 
-2.  In the **File Explorer** window that appears, navigate to the **Allfiles (F):\\Mod02\\Labfiles\\Starter** folder.
+1.  Right-click the **deploy.json** file you just downloaded and select the **Open with Code** option to start the **Visual Studio Code** application.
 
-3.  Right-click the **deploy.json** file and select the **Open with Code** option to start the **Visual Studio Code** application.
+1.  In the **Visual Studio Code** window that appears, observe the content of the JSON file.
 
-4.  In the **Visual Studio Code** window that appears, observe the content of the JSON file.
+1.  At the top of the **Visual Studio Code** window, click the **File** menu and select the **Close Folder** option.
 
-5.  At the top of the **Visual Studio Code** window, click the **File** menu and select the **Close Folder** option.
-
-6.  Close the **File Explorer** window.
+1.  Close the **File Explorer** window.
 
 7.  Return to the **Microsoft Edge** window with the **Azure Portal** open.
 
@@ -235,39 +187,3 @@ The lab platform will give you a username and password that you can use to sign-
 5.  Within the deployment blade, observe the information displayed in the **Inputs** and **Outputs** sections.
 
 > **Review**: In this exercise, you deployed a more sophisticated template that created multiple resources using a combination of parameters, variables and output values.
-
-### Exercise 5: Cleanup Subscription
-
-#### Task 1: Open Cloud Shell
-
-1.  At the top of the portal, click the **Cloud Shell** icon to open a new shell instance.
-
-2.  In the **Cloud Shell** command prompt at the bottom of the portal, type in the following command and press **Enter** to list all resource groups in the subscription:
-
-    ```azurecli-interactive
-        az group list
-    ```
-
-3.  Type in the following command and press **Enter** to view a list of possible CLI commands to *delete a Resource Group*:
-
-    ```azurecli-interactive
-        az group delete --help
-    ```
-
-#### Task 2: Delete Resource Groups
-
-1.  Type in the following command and press **Enter** to delete the **STORAGEGROUP** *Resource Group*:
-
-    ```azurecli-interactive
-        az group delete --name STORAGEGROUP --no-wait --yes
-    ```
-
-2.  Type in the following command and press **Enter** to delete the **APPSGROUP** *Resource Group*:
-
-    ```azurecli-interactive
-        az group delete --name APPSGROUP --no-wait --yes
-    ```
-
-3.  Close the **Cloud Shell** prompt at the bottom of the portal.
-
-> **Review**: In this exercise, you "cleaned up your subscription" by removing the **Resource Groups** used in this lab.

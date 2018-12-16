@@ -1,0 +1,10 @@
+title: 'Introduction to Azure'
+remote_theme: azure-immersion/azure-immersion/docs-jekyll-theme
+plugins:
+  - jekyll-sitemap
+  - jekyll-mentions
+  - jemoji
+markdown: kramdown
+kramdown:
+   syntax_highlighter_opts:
+      disable : true

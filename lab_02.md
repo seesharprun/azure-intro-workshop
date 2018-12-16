@@ -124,7 +124,7 @@
 
 #### Task 1: View ARM Template
 
-1.  Right click the link [here](repo/files/deploy.json) and select **Save As** to download the needed **deploy.json** file.
+1.  Right click the link [here](files/deploy.json) and select **Save As** to download the needed **deploy.json** file.
 
 1.  Right-click the **deploy.json** file you just downloaded and select the **Open with Code** option to start the **Visual Studio Code** application.
 

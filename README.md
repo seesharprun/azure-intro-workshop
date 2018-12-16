@@ -1,1 +1,0 @@
-# azure-intro-workshop

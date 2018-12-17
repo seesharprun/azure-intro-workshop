@@ -2,7 +2,16 @@
 
 ### Exercise 1: Signing in to the Azure Portal
 
-The lab platform will give you a username and password that you can use to sign-in to the Azure Portal. Please use this username and password for the labs instead of your own company-supplied username and password.
+1. Log into the **Azure Portal**.
+
+    >Note: The lab platform will give you a username and password that you can use to sign-in to the Azure Portal. Please use this username and password for the labs instead of your own company-supplied username and password.
+
+1. Click **Maybe later** in the *Welcome to Microsoft* popup.
+
+1. In the top center of the **Home** view, select **Dashboard** as your default view and click **Save**.
+
+1. In the navigation pane on the left side, click **Dashboard**.
+
 
 ### Exercise 2: Customizing the Azure Portal
 
@@ -71,17 +80,19 @@ The lab platform will give you a username and password that you can use to sign-
 
 1. Click **Microsoft Azure** in the upper-left corner to return to the dashboard.
 
-1. Click the **Service Health** tile, and then, in the resulting blade, note the **Service Health - Service Issues** view. Click **Planned maintenance**, **Health advisories**, and **Resource health**. Note that you can customize each view by filtering categories of items that you are interested in, such as region, service type, or resource type.  
+1. Click the **Service Health** tile, and then, in the resulting blade note the **Service Health - Service Issues** view. 
+
+1. Click **Planned maintenance**, **Health advisories**, and **Resource health**. Note that you can customize each view by filtering categories of items that you are interested in, such as region, service type, or resource type.  
 
 1. Click **Microsoft Azure** in the upper-left corner to return to the dashboard.
 
-1. If needed, to expand the hub menu, click the double caret icon directly underneath the **Microsoft Azure** label.
+    >If needed, to expand the hub menu, click the double caret icon directly underneath the **Microsoft Azure** label.
 
 1. In the hub menu, click **+ Create a resource**.
 
 1. On the **New** blade, review the list of available options, but do not select any.
 
-1. In the hub menu, click **All services**, in the **All services** text box, type **Subscriptions**, and press **Enter**.
+1. In the hub menu, click **All services**. In the **All services** text box type **Subscriptions**.
 
 1. In the list of results, click **Subscriptions**.
 
@@ -109,7 +120,7 @@ The lab platform will give you a username and password that you can use to sign-
 
     - Subscription: ensure that the name of the target Azure subscription appears in the drop-down list
 
-    - Resource group: click **Create new**, in the **Name** text box, type **VIRTUALMACHINEGROUP**, and click **OK**.
+    - Resource group: **Azurelod8028054**
 
     - Virtual machine name: **demo-vm**
   
@@ -147,7 +158,7 @@ The lab platform will give you a username and password that you can use to sign-
 
     - Public IP address: **(new) demo-vm-ip**
 
-    - Network security group: **Basic**
+    - NIC Network security group: **Basic**
 
     - Public inbound ports: **Allow selected ports**
 
@@ -163,13 +174,9 @@ The lab platform will give you a username and password that you can use to sign-
   
     - Diagnostics storage account: accept the default value (this will create a new storage account)
 
-    - Managed service identity: **Off**
+    - System assigned managed identity: **Off**
 
-    - Extensions: **No extensions**
-  
     - Enable auto-shutdown: **Off**
-
-    - Enable backup: **Off**
 
 1. On the **Guest config** tab of the **Create a virtual machine** blade, accept the default settings, and then click **Next: Tags**.
 
@@ -245,34 +252,29 @@ The lab platform will give you a username and password that you can use to sign-
 
 #### Task 3: Create App Service Plan
 
-2.  In the **Cloud Shell** command prompt at the bottom of the portal, type in the following command and press **Enter** to create a new **Resource Group**:
-
-    ```azurecli-interactive
-    az group create --name APPSERVICEGROUP --location eastus
-    ```
-
-4.  Type in the following command and press **Enter** to view a list of possible CLI commands for *App Service*:
+1.  Type in the following command and press **Enter** to view a list of possible CLI commands for *App Service*:
 
     ```azurecli-interactive
     az appservice --help
     ```
 
-5.  Type in the following command and press **Enter** to view a list of possible CLI commands for *App Service Plans*:
+1.  Type in the following command and press **Enter** to view a list of possible CLI commands for *App Service Plans*:
 
     ```azurecli-interactive
     az appservice plan --help
     ```
 
-6.  Type in the following command and press **Enter** to view a list of possible CLI commands to *create App Service Plans*:
+1.  Type in the following command and press **Enter** to view a list of possible CLI commands to *create App Service Plans*:
 
     ```azurecli-interactive
     az appservice plan create --help
     ```
 
-7.  Type in the following command and press **Enter** to create a new **App Service Plan**:
+1.  Type in the following command and press **Enter** to create a new **App Service Plan**:
 
     ```azurecli-interactive
-    az appservice plan create --is-linux --name HostedServicePlan --resource-group APPSERVICEGROUP --location eastus --sku B2
+    az appservice plan create --name HostedServicePlan --resource-group Azurelod8028054 --location eastus --sku B2
+    ```
 
 #### Task 4: Create a Web App Instance
 
@@ -282,74 +284,40 @@ The lab platform will give you a username and password that you can use to sign-
     az webapp --help
     ```
 
-2.  Type in the following command and press **Enter** to view a list of possible CLI commands to *create Web Apps*:
+1.  Type in the following command and press **Enter** to view a list of possible CLI commands to *create Web Apps*:
 
     ```azurecli-interactive
     az webapp create --help
     ```
 
-3.  Type in the following command and press **Enter** to view a list of possible *runtimes* for a *linux-based az webApp Service* instance:
+1.  Type in the following command and press **Enter** to view a list of possible *runtimes* for a *linux-based az webApp Service* instance:
 
     ```azurecli-interactive
     az webapp list-runtimes --linux
     ```
 
-4.  Type in the following command and press **Enter** to create a new blank **Web App** using a unique name:
+1.  Type in the following command and press **Enter** to create a new blank **Web App** using a unique name:
 
     ```azurecli-interactive
-    az webapp create --name [Unique Name Here] --plan HostedServicePlan --resource-group APPSERVICEGROUP --runtime "DOTNETCORE|2.0"
+    az webapp create --name [Unique Name Here] --plan HostedServicePlan --resource-group Azurelod8028054
     ```
 
     Make sure you replace the **\[Unique Name Here\]** placeholder with a globally unique name. For example, if your unique name is **blankinterestingapp**, your command will look like this:
 
     ```azurecli-interactive
-    az webapp create --name blankinterestingapp --plan HostedServicePlan --resource-group APPSERVICEGROUP --runtime "DOTNETCORE|2.0"
+    az webapp create --name blankinterestingapp --plan HostedServicePlan --resource-group Azurelod8028054 
     ```
 
-5.  On the left side of the portal, click the **Resource groups** link.
+1.  On the left side of the portal, click the **Resource groups** link.
 
-6.  In the **Resource groups** blade, locate and select the **APPSERVICEGROUP** *Resource Group* link.
+1.  In the **Resource groups** blade, locate and select the **Azurelod8028054** *Resource Group* link.
 
-7.  In the **APPSERVICEGROUP** blade, select the **Web App** you most recently created.
+1.  In the **Azurelod8028054** blade, select the **Web App** you most recently created.
 
-8.  In the **Web App** blade, click the **Browse** button at the top of the blade.
+1.  In the **Web App** blade, click the **Browse** button at the top of the blade.
 
-9.  Observe the placeholder page provided by Azure App Service.
+1.  Observe the placeholder page provided by Azure App Service.
 
 1. Close the currently running web browser application.
 
-> **Results**: After completing this exercise, you will have used the Azure Cloud Shell to interactively invoke commands using the Azure CLI.
-
-### Exercise 5: Cleanup Subscription
-
-#### Task 1: Open Cloud Shell
-
-1.  At the top of the portal, click the **Cloud Shell** icon to open a new shell instance.
-
-2.  In the **Cloud Shell** command prompt at the bottom of the portal, type in the following command and press **Enter** to list all resource groups in the subscription:
-
-    ```azurecli-interactive
-        az group list
-    ```
-
-3.  Type in the following command and press **Enter** to view a list of possible CLI commands to *delete a Resource Group*:
-
-    ```azurecli-interactive
-        az group delete --help
-    ```
-
-#### Task 2: Delete Resource Groups
-
-1.  Type in the following command and press **Enter** to delete the **APPSERVICEGROUP** *Resource Group*:
-
-    ```azurecli-interactive
-        az group delete --name APPSERVICEGROUP --no-wait --yes
-    ```
-
-1.  Type in the following command and press **Enter** to delete the **VIRTUALMACHINEGROUP** *Resource Group*:
-
-    ```azurecli-interactive
-        az group delete --name VIRTUALMACHINEGROUP --no-wait --yes
-    ```
-
-3.  Close the **Cloud Shell** prompt at the bottom of the portal.
+> **Results**: After completing this exercise, you will have used the Azure Cloud Shell to interactively invoke commands using the Azure CLI

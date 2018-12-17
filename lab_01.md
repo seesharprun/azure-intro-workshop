@@ -6,6 +6,8 @@
 
     >Note: The lab platform will give you a username and password that you can use to sign-in to the Azure Portal. Please use this username and password for the labs instead of your own company-supplied username and password.
 
+1. Click **Maybe later** in the *Welcome to Microsoft* popup.
+
 1. In the top center of the **Home** view, select **Dashboard** as your default view and click **Save**.
 
 1. In the navigation pane on the left side, click **Dashboard**.
@@ -78,11 +80,13 @@
 
 1. Click **Microsoft Azure** in the upper-left corner to return to the dashboard.
 
-1. Click the **Service Health** tile, and then, in the resulting blade, note the **Service Health - Service Issues** view. Click **Planned maintenance**, **Health advisories**, and **Resource health**. Note that you can customize each view by filtering categories of items that you are interested in, such as region, service type, or resource type.  
+1. Click the **Service Health** tile, and then, in the resulting blade note the **Service Health - Service Issues** view. 
+
+1. Click **Planned maintenance**, **Health advisories**, and **Resource health**. Note that you can customize each view by filtering categories of items that you are interested in, such as region, service type, or resource type.  
 
 1. Click **Microsoft Azure** in the upper-left corner to return to the dashboard.
 
-1. If needed, to expand the hub menu, click the double caret icon directly underneath the **Microsoft Azure** label.
+    >If needed, to expand the hub menu, click the double caret icon directly underneath the **Microsoft Azure** label.
 
 1. In the hub menu, click **+ Create a resource**.
 
@@ -269,7 +273,7 @@
 1.  Type in the following command and press **Enter** to create a new **App Service Plan**:
 
     ```azurecli-interactive
-    az appservice plan create --is-linux --name HostedServicePlan --resource-group Azurelod8028054 --location eastus --sku B2
+    az appservice plan create --name HostedServicePlan --resource-group Azurelod8028054 --location eastus --sku B2
     ```
 
 #### Task 4: Create a Web App Instance
@@ -295,13 +299,13 @@
 1.  Type in the following command and press **Enter** to create a new blank **Web App** using a unique name:
 
     ```azurecli-interactive
-    az webapp create --name [Unique Name Here] --plan HostedServicePlan --resource-group Azurelod8028054 --runtime "DOTNETCORE|2.0"
+    az webapp create --name [Unique Name Here] --plan HostedServicePlan --resource-group Azurelod8028054
     ```
 
     Make sure you replace the **\[Unique Name Here\]** placeholder with a globally unique name. For example, if your unique name is **blankinterestingapp**, your command will look like this:
 
     ```azurecli-interactive
-    az webapp create --name blankinterestingapp --plan HostedServicePlan --resource-group Azurelod8028054 --runtime "DOTNETCORE|2.0"
+    az webapp create --name blankinterestingapp --plan HostedServicePlan --resource-group Azurelod8028054 
     ```
 
 1.  On the left side of the portal, click the **Resource groups** link.

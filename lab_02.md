@@ -124,7 +124,7 @@
 
 #### Task 1: View ARM Template
 
-1.  Right click the link [here](files/deploy.json) and select **Save As** to download the needed **deploy.json** file.
+1.  Right click the link [here](files/deploy.json) and select **Save link as..** to download the needed **deploy.json** file.
 
 1.  Right-click the **deploy.json** file you just downloaded and select the **Open with Code** option to start the **Visual Studio Code** application.
 
@@ -138,7 +138,7 @@
 
 #### Task 2: Deploy App Service ARM Template
 
-1.  On the left side of the portal, click the **New** link.
+1.  On the left side of the portal, click the **Create a resource** link.
 
 2.  At the top of the **New** blade, locate the **Search the Marketplace** field.
 
@@ -152,7 +152,7 @@
 
 7.  In the **Edit template** blade, click the **Load file** link.
 
-8.  In the **Open** file dialog that appears, navigate to the **Allfiles (F):\\Mod02\\Labfiles\\Starter** folder.
+8.  In the **Open** file dialog that appears, navigate to the location you saved **deploy.json** to.
 
 9.  Select the **deploy.json** file.
 
@@ -164,7 +164,7 @@
 
     a.  Leave the **Subscription** field set to its default value.
 
-    b.  In the **Resource group** section, locate the list and select the **APPSGROUP** option.
+    b.  In the **Resource group** section, locate the list and select the **Azurelod8028054** option.
 
     c.  In the **Function App Name** field, enter a globally unique value. This will be used to create the unique URL for this *Function App*.
 
@@ -178,9 +178,9 @@
 
 1.  On the left side of the portal, click the **Resource groups** link.
 
-2.  In the **Resource groups** blade, locate and select the **APPSGROUP** *Resource Group* link.
+2.  In the **Resource groups** blade, locate and select the **Azurelod8028054** *Resource Group* link.
 
-3.  In the **APPSGROUP** blade, locate the **Settings** section on the left side of the blade and click the **Deployments** link.
+3.  In the **Azurelod8028054** blade, locate the **Settings** section on the left side of the blade and click the **Deployments** link.
 
 4.  In the **Deployments** pane, select the latest deployment to view its metadata in a new blade.
 
